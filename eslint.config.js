@@ -1,5 +1,5 @@
 /** @type {import('eslint').Linter.Config} */
-module.exports = {
+export default {
   env: {
     es6: true,
     es2021: true,
