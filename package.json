@@ -9,7 +9,8 @@
   "scripts": {
     "start": "node src/index.js",
     "test": "mocha tests/animals.spec.js",
-    "lint": "eslint . --ext .js"
+    //alle .js files in de src map worden gecontroleerd voor linting
+    "lint": "eslint . --ext .js --fix"
   },
   "dependencies": {
     "@fakerjs/animal": "^2.2.0",
