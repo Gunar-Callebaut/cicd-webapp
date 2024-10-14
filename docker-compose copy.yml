@@ -1,0 +1,38 @@
+services:
+  webapp:
+    # image: webapp:latest # Niet nodig want we gebruiken de build: . om de image te bouwen
+    build: .
+    restart: always
+    ports:
+      - "3000:3000"
+    depends_on:
+      - database # Zorgt ervoor dat de database eerst wordt gestart
+    environment:
+      - MYSQL_URL=mysql://root:rootpassword@database:3306/webapp_db # URL naar de database (gebruik de root want dan heb ik de rechten)
+    # volumes: wordt niet meer gebruikt want we gebruiken geen sqlite meer
+    #   - ./database:/app/database
+
+  database:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword # Wachtwoord root
+      MYSQL_DATABASE: webapp_db # Naam van de database
+      MYSQL_USER: user # naam user
+      MYSQL_PASSWORD: password # wachtwoord user
+    volumes:
+      - db_data:/var/lib/mysql # Persistente opslag voor de MySQL data
+
+  tests:
+    build: . #de hele omgeving is nodig om de tests te runnen
+    depends_on: #kan niet zonder deze 2 services
+      - webapp
+      - database
+    environment:
+      - API_URL=http://webapp:3000 #verwijst naar webapp op poort 3000
+    command: yarn test #commando om de tests te runnen
+    volumes:
+      - ./tests:/app/tests #mount de tests folder
+
+volumes: # Volume voor de database om de data persistent op te slaan op host machine
+  db_data:

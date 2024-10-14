@@ -1,0 +1,9 @@
+services:
+  webapp:
+    image: gunar03/webapp:latest
+    build: .
+    restart: always
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./database:/app/database

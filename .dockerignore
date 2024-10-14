@@ -1,0 +1,7 @@
+node_modules
+docker-compose.yml
+docker-compose-sqlite.yml
+Dockerfile
+Dockerfile copy
+docker-compose.portainer.yml
+.dockerignore
