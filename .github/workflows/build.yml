@@ -26,5 +26,5 @@ jobs:
         with:
           context: . # path naar de Dockerfile
           file: ./Dockerfile # path naar de Dockerfile
-          tags: webapp-webapp gunar03/webapp:latest # Image naam en tag
+          tags: gunar03/webapp:latest # Image naam en tag
           push: false # niet pushen naar Docker Hub
