@@ -18,11 +18,5 @@ jobs:
       - name: Install dependencies
         run: yarn install
 
-      - name: Check ESLint version
-        run: yarn eslint --version
-
-      - name: Run ESLint manually
-        run: eslint . --debug
-
       - name: Run yarn lint
         run: yarn lint
