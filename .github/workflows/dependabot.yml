@@ -1,0 +1,6 @@
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/" # De directory waar de workflow files staan
+    schedule:
+      interval: "weekly"
