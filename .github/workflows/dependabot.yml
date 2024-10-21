@@ -1,6 +1,6 @@
 version: 2
 updates:
   - package-ecosystem: "github-actions"
-    directory: "../../."
+    directory: "/CICD/."
     schedule:
       interval: "weekly"
