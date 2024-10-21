@@ -28,7 +28,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
       - name: Build image
-        uses: docker/build-push-action@v3
+        uses: docker/build-push-action@v6
         with:
           context: . # path naar de Dockerfile
           file: ./Dockerfile # path naar de Dockerfile
