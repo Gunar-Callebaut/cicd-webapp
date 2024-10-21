@@ -34,6 +34,3 @@ jobs:
           file: ./Dockerfile # path naar de Dockerfile
           tags: gunar03/webapp:latest # Image naam en tag
           push: true # wel pushen naar Docker Hub
-
-
-          #test
